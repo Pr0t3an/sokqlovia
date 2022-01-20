@@ -2,7 +2,7 @@
 Azure Resource Graph Helper
 
 Usage:
-
+```
  ____        _         _            _       
 / ___|  ___ | | ____ _| | _____   _(_) __ _ 
 \___ \ / _ \| |/ / _` | |/ _ \ \ / / |/ _` |
@@ -19,7 +19,7 @@ optional arguments:
   -c CUSTOM_QUERY  Quote encapsulated KQL query to be executed
   -d               Displays List of Pre-define templates for use with -t flag
   -s SAVED_QUERY   Select Saved Query by ID, provide param -p for positional argument
-  -p P             Parameter needed. Used in conjuction with -S
+  -p P             Parameter needed. Used in conjuction with -S ```
 
 
 
