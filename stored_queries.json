@@ -1,0 +1,40 @@
+{
+  "queries": [
+    {
+      "QueryID": "1",
+      "QueryName": "AllVms_orderASC",
+      "ShortDescription": "Output all Compute VMs",
+      "KQL": "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project id, name, location, resourceGroup, properties.storageProfile.osDisk.osType | order by id asc",
+      "PositionalArg": "N"
+    },
+    {
+      "QueryID": "2",
+      "QueryName": "AllVms_orderDesc",
+      "ShortDescription": "Output all Compute VMs",
+      "KQL": "Resources | where type =~ 'Microsoft.Compute/virtualMachines' | project id, name, location, resourceGroup, properties.storageProfile.osDisk.osType | order by id desc",
+      "PositionalArg": "N"
+    },
+    {
+      "QueryID": "3",
+      "QueryName": "Resources_by_Type",
+      "ShortDescription": "find resources by type, group by region",
+      "KQL": "Resources | type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by location | order by location desc",
+      "PositionalArg": "N"
+    },
+    {
+      "QueryID": "4",
+      "QueryName": "Find_By_Hostname",
+      "ShortDescription": "Find Resource by Hostname",
+      "KQL": "Resources | where name =~ '<sokqlovia>'",
+      "PositionalArg": "Y"
+    },
+       {
+      "QueryID": "5",
+      "QueryName": "Public_IP",
+      "ShortDescription": "Find Resource by PublicIP",
+      "KQL": "Resources | where type contains 'publicIPAddresses' and properties.ipAddress =~ '<sokqlovia>'",
+      "PositionalArg": "Y"
+    }
+
+  ]
+}
