@@ -100,8 +100,10 @@ def savedqueryexec(id,param):
     f = open("stored_queries.json")
     data = json.load(f)
     curr = 0
+    found = 0
     for i in data['queries']:
         if i['QueryID'] == id:
+            found = 1
             #i['QueryID'], i['QueryName'], i['ShortDescription'],i['PositionalArg'], i['KQL']
             # if it has a positional argument - need to check if one was provided
             if i['PositionalArg'] == "Y":
@@ -120,7 +122,7 @@ def savedqueryexec(id,param):
                 getresources(i['KQL'])
 
         else:
-            if (curr+1) == len(i):
+            if (curr+1) == len(i) and found=="0":
                 print(Style.BRIGHT + Back.YELLOW + Fore.RED + "[Error] Unable to find matching template (run -d)")
             curr += 1
 
@@ -139,7 +141,7 @@ def argparsing():
 
     args = parser.parse_args()
     if args.outfile:
-        outputfilename = args.outputdir
+        outputfilename = args.outfile
 
     if args.x:
         testquery()
