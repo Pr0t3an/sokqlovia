@@ -34,6 +34,20 @@
       "ShortDescription": "Find Resource by PublicIP",
       "KQL": "Resources | where type contains 'publicIPAddresses' and properties.ipAddress =~ '<sokqlovia>'",
       "PositionalArg": "Y"
+    },
+           {
+      "QueryID": "6",
+      "QueryName": "Dump_All_in_RG",
+      "ShortDescription": "Dump All info from an RG",
+      "KQL": "Resources | where (resourceGroup == ('<sokqlovia>')) | project name,id,type,location,subscriptionId,resourceGroup,tags, managedBy, sku,plan,properties,identity,tenantId | order by name",
+      "PositionalArg": "Y"
+    },
+           {
+      "QueryID": "7",
+      "QueryName": "Dump_All_RG_Count",
+      "ShortDescription": "Count all resources in an RG by type",
+      "KQL": "Resources | where (resourceGroup == ('<sokqlovia>')) | project name,id,type,location,subscriptionId,resourceGroup,tags, managedBy, sku,plan,properties,identity,tenantId | order by name | summarize count() by type",
+      "PositionalArg": "Y"
     }
 
   ]
